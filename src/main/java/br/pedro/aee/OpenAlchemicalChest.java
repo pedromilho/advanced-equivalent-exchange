@@ -72,7 +72,7 @@ public final class OpenAlchemicalChest extends SimpleInstantInteraction {
             if (!windows.remove(uuid, window) || !windows.isEmpty() || !blockRef.isValid()) return;
             animate(world, position, "CloseWindow");
         });
-        var page = new AlchemicalChestPage(playerRef, world, blockRef, window, plugin.emcValues());
+        var page = new AlchemicalChestPage(playerRef, world, blockRef, window, plugin);
         if (!player.getPageManager().openCustomPageWithWindows(ref, store, page, window)) {
             windows.remove(uuid, window);
             return;

@@ -9,6 +9,9 @@ An alchemy mod for **Hytale 0.7.7**, inspired by [ProjectE](https://github.com/s
 
 Find the recipes in the **Equivalent Exchange** tab of the Alchemist's Workbench.
 
+Use `/aee` or `/advancedequivalentexchange` to edit item EMC values. The world owner and players with the `advancedequivalentexchange.config` permission can save changes.
+The world owner and players with both editor access and `advancedequivalentexchange.permissions` can grant Modify or Read-only access from **Player Permissions**.
+
 ## Build and install
 
 With JDK 25 on your PATH and the `HytaleServer.jar` from Hytale 0.7.7, run this command in PowerShell.

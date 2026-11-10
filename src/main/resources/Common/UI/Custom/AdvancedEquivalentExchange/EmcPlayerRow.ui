@@ -1,0 +1,34 @@
+$C = "../Common.ui";
+
+Group {
+  Anchor: (Height: 52, Bottom: 6);
+  LayoutMode: Left;
+  Group {
+    FlexWeight: 1;
+    Anchor: (Height: 46, Right: 10);
+    Background: #1c2836;
+    Label #PlayerName { Anchor: (Left: 12, Right: 6, Height: 42); Style: (FontSize: 14, VerticalAlignment: Center, TextColor: #d3dee3); }
+  }
+  Group {
+    Anchor: (Width: 86, Height: 46);
+    LayoutMode: Center;
+    $C.@CheckBox #Modify { Anchor: (Width: 22, Height: 22); }
+    Group #ModifyLocked {
+      Visible: false;
+      Anchor: (Width: 22, Height: 22);
+      Background: (TexturePath: "../Common/CheckBoxFrame.png", Border: 7);
+      Group #ModifyMark { Anchor: (Full: 4); Background: "../Common/Checkmark.png"; }
+    }
+  }
+  Group {
+    Anchor: (Width: 86, Height: 46);
+    LayoutMode: Center;
+    $C.@CheckBox #Readonly { Anchor: (Width: 22, Height: 22); }
+    Group #ReadonlyLocked {
+      Visible: false;
+      Anchor: (Width: 22, Height: 22);
+      Background: (TexturePath: "../Common/CheckBoxFrame.png", Border: 7);
+      Group #ReadonlyMark { Anchor: (Full: 4); Background: "../Common/Checkmark.png"; }
+    }
+  }
+}

@@ -52,7 +52,7 @@ final class AlchemicalChestPage extends InteractiveCustomUIPage<InventoryInput> 
     private final World world;
     private final Ref<ChunkStore> blockRef;
     private final ContainerBlockWindow window;
-    private final EmcValues emcValues;
+    private final EquivalentExchangePlugin plugin;
     private final String session = UUID.randomUUID().toString();
     private final String language;
     private final boolean portuguese;
@@ -71,12 +71,12 @@ final class AlchemicalChestPage extends InteractiveCustomUIPage<InventoryInput> 
     private boolean active;
 
     AlchemicalChestPage(PlayerRef player, World world, Ref<ChunkStore> blockRef, ContainerBlockWindow window,
-                        EmcValues emcValues) {
+                        EquivalentExchangePlugin plugin) {
         super(player, CustomPageLifetime.CanDismissOrCloseThroughInteraction, CODEC);
         this.world = world;
         this.blockRef = blockRef;
         this.window = window;
-        this.emcValues = emcValues;
+        this.plugin = plugin;
         language = player.getLanguage() == null ? "en-US" : player.getLanguage().replace('_', '-');
         portuguese = "pt".equals(Locale.forLanguageTag(language).getLanguage());
     }
@@ -310,7 +310,7 @@ final class AlchemicalChestPage extends InteractiveCustomUIPage<InventoryInput> 
             }
         }
         tooltip.render(ui, item, language, x, y, SLOT_SIZE, FRAME_WIDTH, FRAME_HEIGHT,
-            EmcTooltips.line(Transmutation.burnValue(item, emcValues)));
+            EmcTooltips.line(Transmutation.burnValue(item, plugin.emcValues())));
     }
 
     private void flush(UICommandBuilder ui, UIEventBuilder events) {

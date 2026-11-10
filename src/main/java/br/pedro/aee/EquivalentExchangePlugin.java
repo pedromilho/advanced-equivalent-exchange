@@ -14,22 +14,25 @@ import com.hypixel.hytale.server.core.io.adapter.PacketWatcher;
 import com.hypixel.hytale.server.core.io.handlers.game.GamePacketHandler;
 import com.hypixel.hytale.server.core.io.handlers.game.InventoryPacketHandler;
 import com.hypixel.hytale.server.core.modules.entity.component.TransformComponent;
+import com.hypixel.hytale.server.core.modules.i18n.I18nModule;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
+import com.hypixel.hytale.server.core.permissions.PermissionsModule;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
+import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.chunk.section.BlockSection;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.util.Properties;
+import java.util.Map;
+import java.util.OptionalLong;
 
 public final class EquivalentExchangePlugin extends JavaPlugin {
     static final String TABLE = "AEE_Transmutation_Table";
     private ComponentType<EntityStore, AlchemyKnowledge> knowledgeType;
     private ComponentType<ChunkStore, EnergyCondenser> condenserType;
-    private EmcValues emcValues = EmcValues.EMPTY;
+    private volatile EmcConfiguration configuration;
     private PacketFilter tooltipPackets;
 
     public EquivalentExchangePlugin(JavaPluginInit init) {
@@ -38,6 +41,12 @@ public final class EquivalentExchangePlugin extends JavaPlugin {
 
     @Override
     protected void setup() {
+        PermissionsModule.registerPermission(EmcPermissions.MODIFY);
+        PermissionsModule.registerPermission(EmcPermissions.READONLY);
+        PermissionsModule.registerPermission(EmcPermissions.MANAGE);
+        var permissions = new EmcPermissions(getDataDirectory().resolve("commands.properties"),
+            warning -> getLogger().atWarning().log(warning));
+        getCommandRegistry().registerCommand(new EmcEditorCommand(this, permissions));
         knowledgeType = getEntityStoreRegistry()
             .registerComponent(AlchemyKnowledge.class, "AEE_AlchemyKnowledge", AlchemyKnowledge.CODEC);
         getCodecRegistry(Interaction.CODEC).register("AEE_OpenAlchemicalChest",
@@ -67,28 +76,13 @@ public final class EquivalentExchangePlugin extends JavaPlugin {
 
     @Override
     protected void start() {
-        var file = getDataDirectory().resolve("emc.properties");
         try {
-            var basePrices = new Properties();
-            try (var defaults = getClass().getResourceAsStream("/aee-emc.properties")) {
-                basePrices.load(defaults);
-            }
-            if (Files.notExists(file)) {
-                Files.createDirectories(file.getParent());
-                try (var defaults = getClass().getResourceAsStream("/aee-emc.properties")) {
-                    Files.copy(defaults, file);
-                }
-            }
-            var settings = new Properties(basePrices);
-            try (var reader = Files.newBufferedReader(file)) {
-                settings.load(reader);
-            }
-            emcValues = EmcValues.load(settings);
-            var tooltips = new EmcTooltips(emcValues);
+            configuration = new EmcConfiguration(getDataDirectory());
+            var tooltips = new EmcTooltips(this::emcValues);
             tooltipPackets = PacketAdapters.registerOutbound((PacketWatcher) (handler, packet) -> tooltips.decorate(packet));
-            getLogger().atInfo().log("Loaded %d transmutable item types.", emcValues.size());
+            getLogger().atInfo().log("Loaded %d transmutable item types.", emcValues().size());
         } catch (IOException | IllegalArgumentException error) {
-            throw new IllegalStateException("Cannot read EMC configuration at " + file, error);
+            throw new IllegalStateException("Cannot read EMC configuration at " + getDataDirectory(), error);
         }
     }
 
@@ -102,7 +96,23 @@ public final class EquivalentExchangePlugin extends JavaPlugin {
     }
 
     EmcValues emcValues() {
-        return emcValues;
+        var current = configuration;
+        return current == null ? EmcValues.EMPTY : current.snapshot().values();
+    }
+
+    Map<String, Long> emcOverrides() {
+        return configuration.snapshot().overrides();
+    }
+
+    boolean saveEmcOverrides(Map<String, OptionalLong> edits) throws IOException {
+        if (!configuration.save(edits)) return false;
+        var i18n = I18nModule.get();
+        for (var player : Universe.get().getPlayers()) {
+            i18n.queueTranslations(player.getPacketHandler(), i18n.resolveLanguage(player.getLanguage()));
+        }
+        TransmutationPage.refreshPrices();
+        CondenserPage.refreshPrices();
+        return true;
     }
 
     ComponentType<ChunkStore, EnergyCondenser> condenserType() {

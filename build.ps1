@@ -14,6 +14,14 @@ $ServerJar = (Resolve-Path -LiteralPath $ServerJar).Path
 $classes = Join-Path $PSScriptRoot 'build/classes'
 $dist = Join-Path $PSScriptRoot 'dist'
 $source = Join-Path $PSScriptRoot 'src/main'
+if (Test-Path -LiteralPath $classes) {
+    $resolvedClasses = (Resolve-Path -LiteralPath $classes).Path
+    $expectedClasses = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'build/classes'))
+    if ($resolvedClasses -ne $expectedClasses -or (Get-Item -LiteralPath $classes).LinkType) {
+        throw 'Diretório de compilação inesperado.'
+    }
+    Remove-Item -LiteralPath $resolvedClasses -Recurse -Force
+}
 New-Item -ItemType Directory -Path $classes, $dist -Force | Out-Null
 $sources = @(Get-ChildItem -LiteralPath "$source/java" -Recurse -File -Filter '*.java' | ForEach-Object FullName)
 & javac --release 25 -encoding UTF-8 -classpath $ServerJar -d $classes @sources

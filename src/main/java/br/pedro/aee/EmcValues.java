@@ -29,6 +29,10 @@ final class EmcValues {
     }
 
     static EmcValues load(Properties settings) {
+        return load(settings, Map.of());
+    }
+
+    static EmcValues load(Properties settings, Map<String, Long> overrides) {
         var items = Item.getAssetMap().getAssetMap();
         var prices = new HashMap<String, Long>();
         var excluded = new HashSet<String>();
@@ -57,10 +61,19 @@ final class EmcValues {
                 }
             }
         }
+        for (var entry : overrides.entrySet()) {
+            String id = entry.getKey();
+            long value = entry.getValue();
+            if (value < 0 || value > MAX_UNIT) throw new IllegalArgumentException("EMC out of range for " + id);
+            if (!editable(items.get(id))) continue;
+            if (value == 0) prices.remove(id);
+            else prices.put(id, value);
+        }
         var recipes = new ArrayList<Conversion>();
         for (CraftingRecipe recipe : CraftingRecipe.getAssetMap().getAssetMap().values()) {
             var conversion = conversion(recipe, items, resources);
-            if (conversion != null && !excluded.contains(conversion.output)) recipes.add(conversion);
+            if (conversion != null && !excluded.contains(conversion.output)
+                && !overrides.containsKey(conversion.output)) recipes.add(conversion);
         }
 
         // Establish prices from base materials, then lower them when a cheaper recipe is found.
@@ -81,6 +94,10 @@ final class EmcValues {
     private static boolean eligible(Item item) {
         return item != null && item != Item.UNKNOWN && item.getMaxStack() > 0
             && item.getItemStackContainerConfig().getCapacity() == 0 && item.getPortalKey() == null;
+    }
+
+    static boolean editable(Item item) {
+        return eligible(item) && !item.isState() && !item.getId().startsWith("*");
     }
 
     private static Conversion conversion(CraftingRecipe recipe, Map<String, Item> items,

@@ -1,0 +1,21 @@
+Group {
+  Anchor: (Width: 112, Height: 148, Right: 8);
+  Button #Toggle {
+    Anchor: (Full: 0);
+    Background: #1c2836;
+    Style: (Hovered: (Background: #30465e), Pressed: (Background: #3b536b));
+    ItemIcon #Preview { Anchor: (Width: 68, Height: 68, Top: 20, Left: 22); }
+    Label #Name {
+      Anchor: (Top: 92, Left: 6, Right: 6, Height: 32);
+      Style: (FontSize: 12, Wrap: true, HorizontalAlignment: Center, TextColor: #d3dee3);
+    }
+    Label #Id {
+      Anchor: (Top: 128, Left: 5, Right: 5, Height: 14);
+      Style: (FontSize: 9, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 7, HorizontalAlignment: Center, TextColor: #a8b6c6);
+    }
+    Label #CardValue {
+      Anchor: (Top: 3, Left: 5, Right: 5, Height: 16);
+      Style: (FontSize: 11, ShrinkTextToFit: true, MinShrinkTextToFitFontSize: 8, HorizontalAlignment: End, TextColor: #e9c77b);
+    }
+  }
+}

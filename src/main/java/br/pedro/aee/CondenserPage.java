@@ -333,6 +333,13 @@ final class CondenserPage extends InteractiveCustomUIPage<InventoryInput> {
         });
     }
 
+    static void refreshPrices() {
+        for (var page : OPEN.values()) {
+            var ref = page.playerRef.getReference();
+            if (ref != null && ref.isValid()) page.scheduleRefresh(ref, ref.getStore());
+        }
+    }
+
     private void refresh() {
         var ui = new UICommandBuilder();
         var events = new UIEventBuilder();

@@ -1,0 +1,147 @@
+$C = "../Common.ui";
+
+@CardButtonStyle = ButtonStyle(
+  Default: (Background: #1c2836),
+  Hovered: (Background: #30465e),
+  Pressed: (Background: #3b536b)
+);
+@SelectedCardButtonStyle = ButtonStyle(
+  Default: (Background: PatchStyle(TexturePath: "../Common/Buttons/Disabled.png", Border: $C.@ButtonBorder)),
+  Hovered: (Background: PatchStyle(TexturePath: "../Common/Buttons/Disabled.png", Border: $C.@ButtonBorder)),
+  Pressed: (Background: PatchStyle(TexturePath: "../Common/Buttons/Disabled.png", Border: $C.@ButtonBorder))
+);
+@SelectedButtonStyle = TextButtonStyle(
+  Default: (Background: PatchStyle(TexturePath: "../Common/Buttons/Disabled.png", Border: $C.@ButtonBorder), LabelStyle: $C.@SmallButtonDisabledLabelStyle),
+  Hovered: (Background: PatchStyle(TexturePath: "../Common/Buttons/Disabled.png", Border: $C.@ButtonBorder), LabelStyle: $C.@SmallButtonDisabledLabelStyle),
+  Pressed: (Background: PatchStyle(TexturePath: "../Common/Buttons/Disabled.png", Border: $C.@ButtonBorder), LabelStyle: $C.@SmallButtonDisabledLabelStyle)
+);
+
+$C.@PageOverlay {}
+
+$C.@Container {
+  Anchor: (Width: 980, Height: 710);
+  #Title { $C.@Title #PageHeading { @Text = "Advanced Equivalent Exchange"; } }
+  #Content {
+    Padding: (Full: 20);
+    LayoutMode: Top;
+
+    Group {
+      Anchor: (Height: 550);
+      LayoutMode: Left;
+      Group {
+        Anchor: (Width: 630, Right: 20);
+        LayoutMode: Top;
+        $C.@TextField #Search { Anchor: (Height: 38, Bottom: 8); }
+        Group {
+          Anchor: (Height: 28, Bottom: 8);
+          LayoutMode: Left;
+          Label #CatalogTitle {
+            FlexWeight: 1;
+            Style: (FontSize: 14, RenderBold: true, TextColor: #d3dee3, VerticalAlignment: Center);
+          }
+          $C.@SmallSecondaryTextButton #Filter { Anchor: (Width: 150, Height: 26); }
+        }
+        Group #CatalogScroll {
+          FlexWeight: 1;
+          LayoutMode: TopScrolling;
+          ScrollbarStyle: $C.@DefaultScrollbarStyle;
+          Label #Empty { Visible: false; Anchor: (Height: 36); Style: (FontSize: 14, TextColor: #a8b6c6); }
+          Group #PlayerColumns {
+            Visible: false;
+            Anchor: (Height: 26);
+            LayoutMode: Left;
+            Label #PlayerNameColumn { FlexWeight: 1; Anchor: (Right: 10); Style: (FontSize: 12, HorizontalAlignment: Center, TextColor: #a8b6c6); }
+            Label #ModifyColumn { Anchor: (Width: 86); Style: (FontSize: 12, HorizontalAlignment: Center, TextColor: #a8b6c6); }
+            Label #ReadonlyColumn { Anchor: (Width: 86); Style: (FontSize: 12, HorizontalAlignment: Center, TextColor: #a8b6c6); }
+          }
+          Group #Grid { LayoutMode: Top; }
+        }
+      }
+
+      Group {
+        FlexWeight: 1;
+        LayoutMode: Top;
+        Group #EditorPanel {
+          Anchor: (Height: 374);
+          LayoutMode: Top;
+          Label #EditorHeading {
+            Anchor: (Height: 30);
+            Style: (FontSize: 16, RenderBold: true, TextColor: #d3dee3);
+          }
+          Label #ChooseItem { Anchor: (Height: 58); Style: (FontSize: 14, Wrap: true, TextColor: #a8b6c6); }
+          Group #Editor {
+            Visible: false;
+            Anchor: (Height: 344);
+            LayoutMode: Top;
+            ItemIcon #EditorPreview { Anchor: (Width: 80, Height: 80, Bottom: 8); }
+            Label #EditorName { Anchor: (Height: 44); Style: (FontSize: 15, Wrap: true, TextColor: #d3dee3); }
+            Label #EditorId {
+              Anchor: (Height: 32, Bottom: 10);
+              Style: (FontSize: 11, Wrap: true, TextColor: #a8b6c6);
+            }
+            Label #CurrentValue {
+              Anchor: (Height: 28, Bottom: 14);
+              Style: (FontSize: 15, RenderBold: true, TextColor: #e9c77b);
+            }
+            Group #ValueEditor {
+              Anchor: (Height: 126);
+              LayoutMode: Top;
+              Label #ValueLabel { Anchor: (Height: 26); Style: (FontSize: 14, TextColor: #d3dee3); }
+              $C.@TextField #Value { Anchor: (Height: 38, Bottom: 8); }
+              Label #ValueHint { Anchor: (Height: 54); Style: (FontSize: 13, Wrap: true, TextColor: #a8b6c6); }
+            }
+          }
+        }
+        Group #PermissionsHelp {
+          Visible: false;
+          Anchor: (Height: 250);
+          LayoutMode: Top;
+          Label #PermissionsHeading { Anchor: (Height: 36); Style: (FontSize: 16, RenderBold: true, TextColor: #d3dee3); }
+          Label #PermissionsHint { Anchor: (Height: 94); Style: (FontSize: 14, Wrap: true, TextColor: #a8b6c6); }
+          Label #CommandAccessTitle { Anchor: (Height: 30); Style: (FontSize: 14, TextColor: #d3dee3); }
+          Group {
+            Anchor: (Height: 38, Bottom: 8);
+            LayoutMode: Left;
+            $C.@SmallSecondaryTextButton #CommandAdminOnly { FlexWeight: 1; Anchor: (Height: 36, Right: 8); }
+            $C.@SmallSecondaryTextButton #CommandAll { FlexWeight: 1; Anchor: (Height: 36); }
+          }
+          Label #CommandAccessHint { Anchor: (Height: 44); Style: (FontSize: 12, Wrap: true, TextColor: #a8b6c6); }
+        }
+        $C.@SmallSecondaryTextButton #Players { Anchor: (Height: 34, Top: 8); }
+        Group { FlexWeight: 1; }
+        Label #Status {
+          Anchor: (Height: 26);
+          Style: (FontSize: 12, Wrap: true, VerticalAlignment: Center, TextColor: #e9c77b);
+        }
+        Label #Advice {
+          Anchor: (Height: 44);
+          Style: (FontSize: 13, Wrap: true, TextColor: #e9c77b);
+        }
+      }
+    }
+
+    Group {
+      Anchor: (Height: 44, Top: 8);
+      LayoutMode: Left;
+      Group {
+        Anchor: (Width: 630, Right: 20, Height: 40);
+        LayoutMode: Left;
+        Group { FlexWeight: 1; }
+        $C.@SmallSecondaryTextButton #Previous { Anchor: (Width: 40, Height: 40); Text: "<"; }
+        Label #PageNumber {
+          Anchor: (Width: 88, Height: 40);
+          Style: (FontSize: 13, TextColor: #a8b6c6, HorizontalAlignment: Center, VerticalAlignment: Center);
+        }
+        $C.@SmallSecondaryTextButton #Next { Anchor: (Width: 40, Height: 40); Text: ">"; }
+        Group { FlexWeight: 1; }
+      }
+      Group {
+        FlexWeight: 1;
+        Anchor: (Height: 40);
+        LayoutMode: Left;
+        $C.@SmallSecondaryTextButton #Close { FlexWeight: 1; Anchor: (Height: 40, Right: 8); }
+        $C.@TextButton #Save { @Text = "Save"; FlexWeight: 2; Anchor: (Height: 40); }
+      }
+    }
+  }
+}

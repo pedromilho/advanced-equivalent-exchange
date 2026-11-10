@@ -101,7 +101,7 @@ final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
         this.plugin = plugin;
         this.world = world;
         this.target = target;
-        short tradeCapacity = (short) (TRADE_ROWS * catalogColumns(plugin.emcValues().size()));
+        short tradeCapacity = (short) (TRADE_ROWS * catalogColumns(Item.getAssetMap().getAssetMap().size()));
         tradeWindow = emptyWindow(tradeCapacity);
         tradeView = new SimpleItemContainer(tradeCapacity);
         language = player.getLanguage() == null ? "en-US" : player.getLanguage().replace('_', '-');
@@ -329,6 +329,13 @@ final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
         return false;
     }
 
+    static void refreshPrices() {
+        for (var page : OPEN.values()) {
+            var ref = page.playerRef.getReference();
+            if (ref != null && ref.isValid()) page.scheduleRefresh(ref, ref.getStore());
+        }
+    }
+
     private void handleNativeQuick(InventoryGestures.Slot slot) {
         var ref = playerRef.getReference();
         if (!active || ref == null || !ref.isValid()) return;
@@ -475,7 +482,7 @@ final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
             .filter(e -> e.name.toLowerCase(Locale.ROOT).contains(search) || e.id.toLowerCase(Locale.ROOT).contains(search))
             .sorted(Comparator.comparingLong(Entry::emc).reversed().thenComparing(Entry::name).thenComparing(Entry::id))
             .toList();
-        tradeColumns = catalogColumns(entries.size());
+        tradeColumns = Math.min(catalogColumns(entries.size()), tradeView.getCapacity() / TRADE_ROWS);
         int size = tradeColumns * TRADE_ROWS;
         int previousSize = shownTradeSlots;
         shownTradeSlots = size;
