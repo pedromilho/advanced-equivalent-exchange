@@ -1,0 +1,71 @@
+$C = "../Common.ui";
+
+@Section = Label {
+  Style: (FontSize: 15, RenderBold: true, TextColor: #ddb679, VerticalAlignment: Center);
+};
+
+@Note = Label {
+  Style: (FontSize: 14, TextColor: #b8cbc7, VerticalAlignment: Center, Wrap: true);
+};
+
+Group #CondenserRoot {
+  $C.@PageOverlay {}
+  Group {
+    Anchor: (Width: 1040, Height: 634);
+    $C.@Container {
+      Anchor: (Full: 0);
+      #Title { $C.@Title #Heading { @Text = "Energy Condenser Tier 1"; } }
+      #Content {
+        LayoutMode: Full;
+        Padding: (Full: 0);
+
+        Group {
+          Anchor: (Left: 18, Top: 12, Width: 160, Height: 274);
+          Background: #19252b;
+          Label #MoldTitle {
+            Anchor: (Left: 0, Top: 12, Width: 160, Height: 24);
+            Style: (FontSize: 15, RenderBold: true, TextColor: #ddb679, HorizontalAlignment: Center, VerticalAlignment: Center);
+          }
+          Group #MoldHost { Anchor: (Left: 50, Top: 54, Width: 60, Height: 60); }
+          Group {
+            Anchor: (Left: 66, Top: 128, Width: 28, Height: 112);
+            Background: #10181e;
+            Group #EnergyFill {
+              Anchor: (Left: 2, Right: 2, Bottom: 2, Height: 108);
+              Background: #4ccbb1;
+              Visible: false;
+              HitTestVisible: false;
+            }
+          }
+          Label #Energy {
+            Anchor: (Left: 5, Top: 242, Width: 150, Height: 27);
+            Style: (FontSize: 13, RenderBold: true, TextColor: #97e2cb, HorizontalAlignment: Center, VerticalAlignment: Center, Wrap: true);
+          }
+        }
+
+        Group { Anchor: (Left: 190, Top: 12, Width: 832, Height: 274); Background: #19252b; }
+        @Section #InputTitle { Anchor: (Left: 222, Top: 14, Width: 352, Height: 24); }
+        @Section #OutputTitle { Anchor: (Left: 628, Top: 14, Width: 352, Height: 24); }
+        Group #InputHost { Anchor: (Left: 222, Top: 46, Width: 352, Height: 220); }
+        Group #OutputHost { Anchor: (Left: 628, Top: 46, Width: 352, Height: 220); }
+        @Note #Notice { Anchor: (Left: 222, Top: 267, Width: 758, Height: 18); }
+
+        Group {
+          Anchor: (Left: 18, Top: 294, Width: 1004, Height: 268);
+          Background: #19252b;
+          Group #PlayerStorage {
+            Anchor: (Left: 44, Top: 0, Width: 480, Height: 268);
+            @Section #InventoryTitle { Anchor: (Left: 0, Top: 8, Width: 414, Height: 25); }
+            Group #InventoryHost { Anchor: (Left: 0, Top: 39, Width: 414, Height: 176); }
+            Group #HotbarHost { Anchor: (Left: 0, Top: 220, Width: 414, Height: 44); }
+            @Note #HotbarTitle { Anchor: (Left: 416, Top: 220, Width: 64, Height: 44); }
+          }
+          @Section #BackpackTitle { Anchor: (Left: 548, Top: 8, Width: 414, Height: 25); }
+          Group #BackpackHost { Anchor: (Left: 548, Top: 39, Width: 414, Height: 176); }
+        }
+      }
+    }
+    Group #PageTooltipHost { Anchor: (Full: 0); HitTestVisible: false; }
+  }
+  $C.@BackButton {}
+}

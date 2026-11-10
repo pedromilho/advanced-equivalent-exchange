@@ -1,0 +1,10 @@
+@Slots = ItemGridStyle(SlotSize: 60, SlotIconSize: 54, SlotSpacing: 0, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+ItemGrid #TableGrid {
+  Anchor: (Full: 0);
+  SlotsPerRow: 1;
+  AreItemsDraggable: true;
+  InfoDisplay: None;
+  ShowScrollbar: false;
+  Style: @Slots;
+}

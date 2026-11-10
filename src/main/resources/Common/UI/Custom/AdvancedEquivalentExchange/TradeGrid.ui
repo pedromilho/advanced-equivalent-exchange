@@ -1,0 +1,15 @@
+$C = "../Common.ui";
+@Slots = ItemGridStyle(SlotSize: 42, SlotIconSize: 38, SlotSpacing: 3, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+ItemGrid #TableGrid {
+  Anchor: (Full: 0);
+  SlotsPerRow: 14;
+  AreItemsDraggable: true;
+  DisplayItemQuantity: false;
+  InfoDisplay: None;
+  ContentWidth: 634;
+  ShowScrollbar: true;
+  KeepScrollPosition: true;
+  ScrollbarStyle: (...$C.@DefaultScrollbarStyle, Size: 8);
+  Style: @Slots;
+}

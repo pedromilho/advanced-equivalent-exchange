@@ -1,0 +1,10 @@
+{
+  "Group": "Pedro",
+  "Name": "AdvancedEquivalentExchange",
+  "Version": "0.1.0",
+  "Description": "Alchemical storage and EMC transmutation for Hytale.",
+  "Authors": [{ "Name": "Pedro" }],
+  "Main": "br.pedro.aee.EquivalentExchangePlugin",
+  "ServerVersion": "=0.7.7",
+  "IncludesAssetPack": true
+}

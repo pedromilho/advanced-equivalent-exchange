@@ -1,0 +1,403 @@
+{
+  "lod": "auto",
+  "nodes": [
+    {
+      "id": "0",
+      "name": "R-Attachment",
+      "position": {"x": 0, "y": 0, "z": 0},
+      "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
+      "shape": {
+        "type": "none",
+        "offset": {"x": 0, "y": 0, "z": 0},
+        "stretch": {"x": 1, "y": 1, "z": 1},
+        "settings": {"isPiece": true},
+        "visible": true,
+        "doubleSided": false,
+        "shadingMode": "flat",
+        "unwrapMode": "custom",
+        "textureLayout": {}
+      },
+      "children": [
+        {
+          "id": "21",
+          "name": "GemBody",
+          "position": {"x": 0, "y": 20, "z": 0},
+          "orientation": {"x": 0, "y": 0, "z": 0, "w": 1},
+          "shape": {
+            "type": "none",
+            "offset": {"x": 0, "y": 0, "z": 0},
+            "stretch": {"x": 1, "y": 1, "z": 1},
+            "settings": {"isPiece": false},
+            "visible": true,
+            "doubleSided": false,
+            "shadingMode": "flat",
+            "unwrapMode": "custom",
+            "textureLayout": {}
+          },
+          "children": [
+            {
+              "id": "1",
+              "name": "Crown_Front",
+              "position": {"x": 0, "y": 0, "z": 3.6},
+              "orientation": {"x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.0, "y": 1.0, "z": 1},
+                "settings": {"size": {"x": 16, "y": 20}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 1, "y": 1}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "2",
+              "name": "Bevel_Front_1",
+              "position": {"x": 0.0, "y": 11.25, "z": 1.8},
+              "orientation": {"x": 0.8861139, "y": 0.0, "z": 0.0, "w": 0.4634675},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.008, "y": 0.926584, "z": 1},
+                "settings": {"size": {"x": 15, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 21, "y": 2}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "3",
+              "name": "Bevel_Front_2",
+              "position": {"x": 7.875, "y": 10.125, "z": 1.8},
+              "orientation": {"x": 0.8386111, "y": -0.3244107, "z": -0.1652647, "w": 0.3989843},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 42, "y": 2}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "4",
+              "name": "Bevel_Front_3",
+              "position": {"x": 9.0, "y": 0.0, "z": 1.8},
+              "orientation": {"x": 0.6094348, "y": -0.6094348, "z": -0.3585935, "w": 0.3585935},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.006, "y": 0.87365, "z": 1},
+                "settings": {"size": {"x": 20, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 63, "y": 2}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "5",
+              "name": "Bevel_Front_4",
+              "position": {"x": 7.875, "y": -10.125, "z": 1.8},
+              "orientation": {"x": -0.3244107, "y": 0.8386111, "z": 0.3989843, "w": -0.1652647},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 84, "y": 2}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "6",
+              "name": "Bevel_Front_5",
+              "position": {"x": 0.0, "y": -11.25, "z": 1.8},
+              "orientation": {"x": 0.0, "y": 0.8861139, "z": 0.4634675, "w": 0.0},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.008, "y": 0.926584, "z": 1},
+                "settings": {"size": {"x": 15, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 21, "y": 11}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "7",
+              "name": "Bevel_Front_6",
+              "position": {"x": -7.875, "y": -10.125, "z": 1.8},
+              "orientation": {"x": 0.3244107, "y": 0.8386111, "z": 0.3989843, "w": 0.1652647},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 42, "y": 11}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "8",
+              "name": "Bevel_Front_7",
+              "position": {"x": -9.0, "y": 0.0, "z": 1.8},
+              "orientation": {"x": 0.6094348, "y": 0.6094348, "z": 0.3585935, "w": 0.3585935},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.006, "y": 0.87365, "z": 1},
+                "settings": {"size": {"x": 20, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 63, "y": 11}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "9",
+              "name": "Bevel_Front_8",
+              "position": {"x": -7.875, "y": 10.125, "z": 1.8},
+              "orientation": {"x": 0.8386111, "y": 0.3244107, "z": 0.1652647, "w": 0.3989843},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 84, "y": 11}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "10",
+              "name": "Crown_Back",
+              "position": {"x": 0, "y": 0, "z": -3.6},
+              "orientation": {"x": 0.0, "y": 1.0, "z": 0.0, "w": 0.0},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.0, "y": 1.0, "z": 1},
+                "settings": {"size": {"x": 16, "y": 20}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 1, "y": 1}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "11",
+              "name": "Bevel_Back_1",
+              "position": {"x": 0.0, "y": 11.25, "z": -1.8},
+              "orientation": {"x": 0.8861139, "y": 0.0, "z": 0.0, "w": -0.4634675},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.008, "y": 0.926584, "z": 1},
+                "settings": {"size": {"x": 15, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 21, "y": 23}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "12",
+              "name": "Bevel_Back_2",
+              "position": {"x": 7.875, "y": 10.125, "z": -1.8},
+              "orientation": {"x": 0.8386111, "y": -0.3244107, "z": 0.1652647, "w": -0.3989843},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 42, "y": 23}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "13",
+              "name": "Bevel_Back_3",
+              "position": {"x": 9.0, "y": 0.0, "z": -1.8},
+              "orientation": {"x": 0.6094348, "y": -0.6094348, "z": 0.3585935, "w": -0.3585935},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.006, "y": 0.87365, "z": 1},
+                "settings": {"size": {"x": 20, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 63, "y": 23}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "14",
+              "name": "Bevel_Back_4",
+              "position": {"x": 7.875, "y": -10.125, "z": -1.8},
+              "orientation": {"x": -0.3244107, "y": 0.8386111, "z": -0.3989843, "w": 0.1652647},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 84, "y": 23}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "15",
+              "name": "Bevel_Back_5",
+              "position": {"x": 0.0, "y": -11.25, "z": -1.8},
+              "orientation": {"x": 0.0, "y": 0.8861139, "z": -0.4634675, "w": -0.0},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.008, "y": 0.926584, "z": 1},
+                "settings": {"size": {"x": 15, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 21, "y": 32}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "16",
+              "name": "Bevel_Back_6",
+              "position": {"x": -7.875, "y": -10.125, "z": -1.8},
+              "orientation": {"x": 0.3244107, "y": 0.8386111, "z": -0.3989843, "w": -0.1652647},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 42, "y": 32}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "17",
+              "name": "Bevel_Back_7",
+              "position": {"x": -9.0, "y": 0.0, "z": -1.8},
+              "orientation": {"x": 0.6094348, "y": 0.6094348, "z": -0.3585935, "w": -0.3585935},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.006, "y": 0.87365, "z": 1},
+                "settings": {"size": {"x": 20, "y": 5}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 63, "y": 32}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "18",
+              "name": "Bevel_Back_8",
+              "position": {"x": -7.875, "y": 10.125, "z": -1.8},
+              "orientation": {"x": 0.8386111, "y": 0.3244107, "z": -0.1652647, "w": -0.3989843},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 0.913883, "y": 0.806973, "z": 1},
+                "settings": {"size": {"x": 4, "y": 6}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "flat",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 84, "y": 32}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "19",
+              "name": "Pulse_Front",
+              "position": {"x": 0, "y": 0, "z": 3.3},
+              "orientation": {"x": 0.0, "y": 0.0, "z": 0.0, "w": 1.0},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.0, "y": 1.0, "z": 1},
+                "settings": {"size": {"x": 16, "y": 20}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "fullbright",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 110, "y": 3}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            },
+            {
+              "id": "20",
+              "name": "Pulse_Back",
+              "position": {"x": 0, "y": 0, "z": -3.3},
+              "orientation": {"x": 0.0, "y": 1.0, "z": 0.0, "w": 0.0},
+              "shape": {
+                "type": "quad",
+                "offset": {"x": 0, "y": 0, "z": 0},
+                "stretch": {"x": 1.0, "y": 1.0, "z": 1},
+                "settings": {"size": {"x": 16, "y": 20}, "normal": "+Z"},
+                "visible": true,
+                "doubleSided": true,
+                "shadingMode": "fullbright",
+                "unwrapMode": "custom",
+                "textureLayout": {"front": {"offset": {"x": 110, "y": 3}, "mirror": {"x": false, "y": false}, "angle": 0}}
+              },
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+benchCategories.aee = Troca Equivalente
+items.AEE_Alchemical_Chest.name = Baú Alquímico
+items.AEE_Alchemical_Chest.description = Armazena até 104 pilhas de itens.
+items.AEE_Transmutation_Table.name = Mesa de Transmutação
+items.AEE_Transmutation_Table.description = Converte itens em EMC e usa essa energia para recriar materiais aprendidos.
+items.AEE_Philosophers_Stone.name = Pedra Filosofal
+items.AEE_Philosophers_Stone.description = Uma gema vermelha com um núcleo pulsante, usada para fabricar a Mesa de Transmutação.
+items.AEE_Energy_Condenser.name = Condensador de Energia Tier 1
+items.AEE_Energy_Condenser.description = Converte itens depositados em cópias do item colocado no slot de molde.
+items.AEE_Energy_Condenser_MK2.name = Condensador de Energia Tier 2
+items.AEE_Energy_Condenser_MK2.description = Condensa itens mais rápido e separa os inventários de entrada e saída.

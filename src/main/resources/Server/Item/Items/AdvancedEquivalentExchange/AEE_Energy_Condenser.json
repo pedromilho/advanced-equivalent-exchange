@@ -1,0 +1,50 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AEE_Energy_Condenser.name",
+    "Description": "server.items.AEE_Energy_Condenser.description"
+  },
+  "Icon": "Icons/Items/AdvancedEquivalentExchange/EnergyCondenserIcon.png",
+  "PlayerAnimationsId": "Block",
+  "Categories": ["Furniture.Benches"],
+  "MaxStack": 25,
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Recipe": {
+    "Input": [
+      { "ItemId": "AEE_Alchemical_Chest", "Quantity": 1 },
+      { "ItemId": "Rock_Volcanic", "Quantity": 8 },
+      { "ItemId": "Rock_Gem_Sapphire", "Quantity": 2 },
+      { "ItemId": "Rock_Gem_Emerald", "Quantity": 1 }
+    ],
+    "BenchRequirement": [
+      { "Id": "Workbench", "Type": "Crafting", "Categories": ["Workbench_Crafting"], "RequiredTierLevel": 2 },
+      { "Id": "Alchemybench", "Type": "Crafting", "Categories": ["AEE_Alchemy"] }
+    ],
+    "TimeSeconds": 4
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "VariantRotation": "NESW",
+    "CustomModel": "Blocks/AdvancedEquivalentExchange/EnergyCondenser.blockymodel",
+    "CustomModelTexture": [
+      { "Texture": "Blocks/AdvancedEquivalentExchange/EnergyCondenser.png", "Weight": 1 }
+    ],
+    "HitboxType": "AEE_Energy_Condenser",
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "ParticleColor": "#34636a",
+    "Gathering": { "Breaking": { "GatherType": "Benches" } },
+    "BlockEntity": {
+      "Components": {
+        "ItemContainerBlock": { "Capacity": 66 },
+        "AEE_EnergyCondenser": { "Tier": 1 }
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor",
+    "Interactions": {
+      "Use": { "Interactions": [{ "Type": "AEE_OpenEnergyCondenser" }] }
+    }
+  }
+}

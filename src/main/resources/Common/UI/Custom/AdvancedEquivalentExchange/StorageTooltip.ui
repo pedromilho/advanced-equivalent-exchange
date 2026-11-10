@@ -1,0 +1,72 @@
+@BodyCommon = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommon.png", Border: 24);
+@ArrowCommon = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommonArrow.png");
+@ArrowUpCommon = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommonArrowUp.png");
+@NameCommon = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #c9d2dd);
+@BodyDebug = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommon.png", Border: 24);
+@ArrowDebug = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommonArrow.png");
+@ArrowUpDebug = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommonArrowUp.png");
+@NameDebug = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #ce1624);
+@BodyDeveloper = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommon.png", Border: 24);
+@ArrowDeveloper = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommonArrow.png");
+@ArrowUpDeveloper = PatchStyle(TexturePath: "Tooltip/ItemTooltipCommonArrowUp.png");
+@NameDeveloper = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #bb2f2c);
+@BodyEpic = PatchStyle(TexturePath: "Tooltip/ItemTooltipEpic.png", Border: 24);
+@ArrowEpic = PatchStyle(TexturePath: "Tooltip/ItemTooltipEpicArrow.png");
+@ArrowUpEpic = PatchStyle(TexturePath: "Tooltip/ItemTooltipEpicArrowUp.png");
+@NameEpic = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #8b339e);
+@BodyJunk = PatchStyle(TexturePath: "Tooltip/ItemTooltipJunk.png", Border: 24);
+@ArrowJunk = PatchStyle(TexturePath: "Tooltip/ItemTooltipJunkArrow.png");
+@ArrowUpJunk = PatchStyle(TexturePath: "Tooltip/ItemTooltipJunkArrowUp.png");
+@NameJunk = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #c9d2dd);
+@BodyLegendary = PatchStyle(TexturePath: "Tooltip/ItemTooltipLegendary.png", Border: 24);
+@ArrowLegendary = PatchStyle(TexturePath: "Tooltip/ItemTooltipLegendaryArrow.png");
+@ArrowUpLegendary = PatchStyle(TexturePath: "Tooltip/ItemTooltipLegendaryArrowUp.png");
+@NameLegendary = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #bb8a2c);
+@BodyRare = PatchStyle(TexturePath: "Tooltip/ItemTooltipRare.png", Border: 24);
+@ArrowRare = PatchStyle(TexturePath: "Tooltip/ItemTooltipRareArrow.png");
+@ArrowUpRare = PatchStyle(TexturePath: "Tooltip/ItemTooltipRareArrowUp.png");
+@NameRare = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #2770b7);
+@BodyTechnical = PatchStyle(TexturePath: "Tooltip/ItemTooltipTechnical.png", Border: 24);
+@ArrowTechnical = PatchStyle(TexturePath: "Tooltip/ItemTooltipTechnicalArrow.png");
+@ArrowUpTechnical = PatchStyle(TexturePath: "Tooltip/ItemTooltipTechnicalArrowUp.png");
+@NameTechnical = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #3b7a8f);
+@BodyTemplate = PatchStyle(TexturePath: "Tooltip/ItemTooltipTechnical.png", Border: 24);
+@ArrowTemplate = PatchStyle(TexturePath: "Tooltip/ItemTooltipTechnicalArrow.png");
+@ArrowUpTemplate = PatchStyle(TexturePath: "Tooltip/ItemTooltipTechnicalArrowUp.png");
+@NameTemplate = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #ce1624);
+@BodyTool = PatchStyle(TexturePath: "Tooltip/ItemTooltipDefault.png", Border: 24);
+@ArrowTool = PatchStyle(TexturePath: "Tooltip/ItemTooltipDefaultArrow.png");
+@ArrowUpTool = PatchStyle(TexturePath: "Tooltip/ItemTooltipDefaultArrowUp.png");
+@NameTool = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #269edc);
+@BodyUncommon = PatchStyle(TexturePath: "Tooltip/ItemTooltipUncommon.png", Border: 24);
+@ArrowUncommon = PatchStyle(TexturePath: "Tooltip/ItemTooltipUncommonArrow.png");
+@ArrowUpUncommon = PatchStyle(TexturePath: "Tooltip/ItemTooltipUncommonArrowUp.png");
+@NameUncommon = LabelStyle(RenderBold: true, FontSize: 18, Wrap: true, TextColor: #3e9049);
+Group #StorageTooltipCanvas {
+  Anchor: (Width: 1120, Height: 700);
+  HitTestVisible: false;
+  Group #StorageTooltip {
+    Visible: false;
+    HitTestVisible: false;
+    Anchor: (Left: 0, Top: 0, Width: 320, Height: 120);
+    Background: @BodyCommon;
+    Group #StorageTooltipArrow { Anchor: (Left: 143, Bottom: -8, Width: 33, Height: 24); Background: @ArrowCommon; }
+    Group #StorageTooltipContent {
+      Anchor: (Left: 24, Top: 21, Right: 24, Bottom: 24);
+      LayoutMode: Top;
+      Group #StorageTooltipHeader { Anchor: (Height: 24); LayoutMode: Left;
+        Label #StorageTooltipName { FlexWeight: 2; Style: @NameCommon; }
+        Label #StorageTooltipQuality { Padding: (Left: 5, Top: 3); Style: (HorizontalAlignment: End, FontSize: 14); }
+      }
+      Label #StorageTooltipId { Anchor: (Height: 18); Style: (TextColor: #838383, FontSize: 14, RenderItalics: true, Wrap: true); }
+      Group #StorageTooltipDescriptionGroup { LayoutMode: Top; Padding: (Top: 5);
+        Group { Anchor: (Height: 1); Background: #25262c; }
+        Label #StorageTooltipDescription { Padding: (Top: 6); FlexWeight: 1; Style: (TextColor: #696969, FontSize: 14, Wrap: true); }
+      }
+      Group #StorageTooltipStatsGroup { LayoutMode: Top; Padding: (Top: 10);
+        Group { Anchor: (Height: 1); Background: #25262c; }
+        Label #StorageTooltipStats { Padding: (Top: 6); FlexWeight: 1; Style: (TextColor: #bca57a, FontSize: 14, Wrap: true); }
+      }
+    }
+  }
+}

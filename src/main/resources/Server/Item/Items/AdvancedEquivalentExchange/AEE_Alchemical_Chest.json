@@ -1,0 +1,56 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AEE_Alchemical_Chest.name",
+    "Description": "server.items.AEE_Alchemical_Chest.description"
+  },
+  "Icon": "Icons/Items/AdvancedEquivalentExchange/AlchemicalChestIcon.png",
+  "PlayerAnimationsId": "Block",
+  "Categories": ["Furniture.Containers"],
+  "MaxStack": 25,
+  "ItemSoundSetId": "ISS_Blocks_Wood",
+  "Recipe": {
+    "Input": [
+      { "ItemId": "Furniture_Crude_Chest_Small", "Quantity": 1 },
+      { "ItemId": "Ingredient_Bar_Iron", "Quantity": 8 },
+      { "ItemId": "Rock_Gem_Emerald", "Quantity": 1 }
+    ],
+    "BenchRequirement": [
+      { "Id": "Furniture_Bench", "Type": "Crafting", "Categories": ["Furniture_Storage"] },
+      { "Id": "Alchemybench", "Type": "Crafting", "Categories": ["AEE_Alchemy"] }
+    ],
+    "TimeSeconds": 3
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "VariantRotation": "NESW",
+    "CustomModel": "Blocks/AdvancedEquivalentExchange/AlchemicalChest.blockymodel",
+    "CustomModelTexture": [
+      { "Texture": "Blocks/AdvancedEquivalentExchange/AlchemicalChest.png", "Weight": 1 }
+    ],
+    "HitboxType": "AEE_Alchemical_Chest",
+    "BlockParticleSetId": "Wood",
+    "BlockSoundSetId": "Wood",
+    "PhysicalMaterialId": "Wood",
+    "ParticleColor": "#245a53",
+    "Gathering": { "Breaking": { "GatherType": "Benches" } },
+    "BlockEntity": { "Components": { "ItemContainerBlock": { "Capacity": 104 } } },
+    "State": {
+      "Definitions": {
+        "OpenWindow": {
+          "InteractionSoundEventId": "SFX_Chest_Wooden_Open",
+          "CustomModelAnimation": "Blocks/Animations/Chest/Chest_Open.blockyanim"
+        },
+        "CloseWindow": {
+          "InteractionSoundEventId": "SFX_Chest_Wooden_Close",
+          "CustomModelAnimation": "Blocks/Animations/Chest/Chest_Close.blockyanim"
+        }
+      }
+    },
+    "InteractionHint": "server.interactionHints.openDoor",
+    "Interactions": {
+      "Use": { "Interactions": [{ "Type": "AEE_OpenAlchemicalChest" }] }
+    }
+  }
+}

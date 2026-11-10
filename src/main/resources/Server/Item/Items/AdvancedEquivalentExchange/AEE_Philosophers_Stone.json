@@ -1,0 +1,30 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AEE_Philosophers_Stone.name",
+    "Description": "server.items.AEE_Philosophers_Stone.description"
+  },
+  "Model": "Items/AdvancedEquivalentExchange/PhilosophersStone.blockymodel",
+  "Texture": "Items/AdvancedEquivalentExchange/PhilosophersStone.png",
+  "Animation": "Items/AdvancedEquivalentExchange/PhilosophersStonePulse.blockyanim",
+  "DroppedItemAnimation": "Items/AdvancedEquivalentExchange/PhilosophersStonePulse.blockyanim",
+  "Icon": "Icons/Items/AdvancedEquivalentExchange/PhilosophersStoneIcon.png",
+  "Categories": ["Items.Ingredients"],
+  "PlayerAnimationsId": "Item",
+  "ItemSoundSetId": "ISS_Items_Gems",
+  "Quality": "Rare",
+  "ItemLevel": 16,
+  "MaxStack": 25,
+  "Scale": 0.75,
+  "Light": { "Color": "#a21", "Radius": 1 },
+  "Recipe": {
+    "Input": [
+      { "ItemId": "Rock_Gem_Ruby", "Quantity": 1 },
+      { "ItemId": "Ingredient_Bar_Gold", "Quantity": 2 },
+      { "ItemId": "Ingredient_Void_Essence", "Quantity": 4 }
+    ],
+    "BenchRequirement": [
+      { "Id": "Alchemybench", "Type": "Crafting", "Categories": ["AEE_Alchemy"] }
+    ],
+    "TimeSeconds": 4
+  }
+}

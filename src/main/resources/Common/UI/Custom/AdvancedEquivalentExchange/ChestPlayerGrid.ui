@@ -1,0 +1,12 @@
+$C = "../Common.ui";
+@Slots = ItemGridStyle(SlotSize: 40, SlotIconSize: 36, SlotSpacing: 4, SlotBackground: "../Common/BlockSelectorSlotBackground.png");
+
+ItemGrid #PlayerGrid {
+  Anchor: (Full: 0);
+  SlotsPerRow: 9;
+  AreItemsDraggable: true;
+  InfoDisplay: None;
+  ShowScrollbar: true;
+  ScrollbarStyle: $C.@DefaultScrollbarStyle;
+  Style: @Slots;
+}

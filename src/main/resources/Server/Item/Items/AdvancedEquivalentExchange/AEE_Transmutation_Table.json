@@ -1,0 +1,48 @@
+{
+  "TranslationProperties": {
+    "Name": "server.items.AEE_Transmutation_Table.name",
+    "Description": "server.items.AEE_Transmutation_Table.description"
+  },
+  "Icon": "Icons/Items/AdvancedEquivalentExchange/TransmutationTableIcon.png",
+  "PlayerAnimationsId": "Block",
+  "Categories": ["Furniture.Benches"],
+  "MaxStack": 25,
+  "ItemSoundSetId": "ISS_Blocks_Stone",
+  "Recipe": {
+    "Input": [
+      { "ItemId": "Rock_Slate_Cobble", "Quantity": 8 },
+      { "ItemId": "Ingredient_Bar_Gold", "Quantity": 2 },
+      { "ItemId": "Rock_Gem_Sapphire", "Quantity": 1 },
+      { "ItemId": "AEE_Philosophers_Stone", "Quantity": 1 }
+    ],
+    "BenchRequirement": [
+      { "Id": "Workbench", "Type": "Crafting", "Categories": ["Workbench_Crafting"] },
+      { "Id": "Alchemybench", "Type": "Crafting", "Categories": ["AEE_Alchemy"] }
+    ],
+    "TimeSeconds": 3
+  },
+  "BlockType": {
+    "Material": "Solid",
+    "DrawType": "Model",
+    "Opacity": "Transparent",
+    "VariantRotation": "NESW",
+    "CustomModel": "Blocks/AdvancedEquivalentExchange/TransmutationTable.blockymodel",
+    "CustomModelTexture": [
+      { "Texture": "Blocks/AdvancedEquivalentExchange/TransmutationTable.png", "Weight": 1 }
+    ],
+    "HitboxType": "AEE_Transmutation_Table",
+    "BlockParticleSetId": "Stone",
+    "BlockSoundSetId": "Stone",
+    "PhysicalMaterialId": "Stone",
+    "ParticleColor": "#354044",
+    "Gathering": { "Breaking": { "GatherType": "Rocks" } },
+    "InteractionHint": "server.interactionHints.openDoor",
+    "Interactions": {
+      "Use": {
+        "Interactions": [
+          { "Type": "AEE_OpenTransmutationTable" }
+        ]
+      }
+    }
+  }
+}

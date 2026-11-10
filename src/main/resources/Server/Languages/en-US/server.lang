@@ -1,0 +1,11 @@
+benchCategories.aee = Equivalent Exchange
+items.AEE_Alchemical_Chest.name = Alchemical Chest
+items.AEE_Alchemical_Chest.description = Stores up to 104 stacks of items.
+items.AEE_Transmutation_Table.name = Transmutation Table
+items.AEE_Transmutation_Table.description = Converts items into EMC and uses that energy to recreate learned materials.
+items.AEE_Philosophers_Stone.name = Philosopher's Stone
+items.AEE_Philosophers_Stone.description = A red gemstone with a pulsing core, used to craft the Transmutation Table.
+items.AEE_Energy_Condenser.name = Energy Condenser Tier 1
+items.AEE_Energy_Condenser.description = Converts deposited items into copies of the item in its target slot.
+items.AEE_Energy_Condenser_MK2.name = Energy Condenser Tier 2
+items.AEE_Energy_Condenser_MK2.description = Condenses items faster with separate input and output inventories.

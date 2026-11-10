@@ -1,0 +1,35 @@
+$C = "../Common.ui";
+
+@Section = Label {
+  Style: $C.@DefaultLabelStyle;
+};
+
+Group #ChestRoot {
+  $C.@PageOverlay {}
+  Group #ChestFrame {
+    Anchor: (Width: 1040, Height: 500);
+
+    $C.@Container {
+      Anchor: (Full: 0);
+      #Title { $C.@Title #Heading { @Text = "Alchemical Chest"; } }
+      #Content {
+        LayoutMode: Full;
+        Padding: (Full: 0);
+
+        $C.@TextField #Search { Anchor: (Left: 17, Top: 12, Width: 428, Height: 34); }
+        $C.@SmallSecondaryTextButton #Sort { Anchor: (Left: 457, Top: 12, Width: 132, Height: 34); }
+        @Section #Summary { Anchor: (Left: 17, Top: 53, Width: 572, Height: 22); }
+        Group #ChestHost { Anchor: (Left: 17, Top: 80, Width: 572, Height: 352); }
+
+        @Section #InventoryTitle { Anchor: (Left: 608, Top: 12, Width: 414, Height: 24); }
+        Group #InventoryHost { Anchor: (Left: 608, Top: 39, Width: 414, Height: 176); }
+        @Section #HotbarTitle { Anchor: (Left: 608, Top: 223, Width: 414, Height: 24); }
+        Group #HotbarHost { Anchor: (Left: 608, Top: 251, Width: 414, Height: 44); }
+        @Section #BackpackTitle { Anchor: (Left: 608, Top: 303, Width: 414, Height: 24); }
+        Group #BackpackHost { Anchor: (Left: 608, Top: 331, Width: 414, Height: 88); }
+      }
+    }
+    Group #PageTooltipHost { Anchor: (Full: 0); HitTestVisible: false; }
+  }
+  $C.@BackButton {}
+}
