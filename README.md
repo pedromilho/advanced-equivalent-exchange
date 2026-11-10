@@ -1,20 +1,20 @@
 # Advanced Equivalent Exchange
 
-Mod de alquimia para **Hytale 0.7.7**, inspirado no [ProjectE](https://github.com/sinkillerj/ProjectE).
+An alchemy mod for **Hytale 0.7.7**, inspired by [ProjectE](https://github.com/sinkillerj/ProjectE).
 
-- **Mesa de Transmutação** converte itens em EMC e usa o saldo para recriar itens aprendidos.
-- **Baú Alquímico** armazena até 104 pilhas.
-- **Condensador de Energia** usa o EMC dos itens depositados para copiar um item escolhido. Tem dois tiers.
-- **Pedra Filosofal** é usada na receita da Mesa de Transmutação.
+- The **Transmutation Table** converts items into EMC and spends it to recreate learned items.
+- The **Alchemical Chest** holds up to 104 stacks.
+- The **Energy Condenser** uses the EMC from deposited items to copy a chosen item. It comes in two tiers.
+- The **Philosopher's Stone** is used to craft the Transmutation Table.
 
-Encontre as receitas na aba **Troca Equivalente** da Bancada de Alquimia.
+Find the recipes in the **Equivalent Exchange** tab of the Alchemist's Workbench.
 
-## Compilação e instalação
+## Build and install
 
-Com o JDK 25 e o `HytaleServer.jar` da versão 0.7.7, execute no PowerShell.
+With JDK 25 on your PATH and the `HytaleServer.jar` from Hytale 0.7.7, run this command in PowerShell.
 
 ```powershell
-.\build.ps1 -ServerJar 'caminho\para\HytaleServer.jar'
+.\build.ps1 -ServerJar 'path\to\HytaleServer.jar'
 ```
 
-Copie o arquivo `dist/AdvancedEquivalentExchange-0.1.0.jar` para `UserData/Mods/` e habilite o mod nas opções do mundo. Em um servidor dedicado, coloque o JAR em `mods/` e reinicie o servidor.
+Copy `dist/AdvancedEquivalentExchange-0.1.0.jar` to `UserData/Mods/` and enable the mod in your world's settings. For a dedicated server, put the JAR in `mods/` and restart the server.
