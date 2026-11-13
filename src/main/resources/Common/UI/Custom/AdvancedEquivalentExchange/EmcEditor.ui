@@ -20,7 +20,7 @@ $C.@PageOverlay {}
 
 $C.@Container {
   Anchor: (Width: 980, Height: 710);
-  #Title { $C.@Title #PageHeading { @Text = "Advanced Equivalent Exchange"; } }
+  #Title { $C.@Title #PageHeading { @Text = "Advanced Equivalency"; } }
   #Content {
     Padding: (Full: 20);
     LayoutMode: Top;

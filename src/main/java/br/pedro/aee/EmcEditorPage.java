@@ -98,7 +98,7 @@ final class EmcEditorPage extends InteractiveCustomUIPage<EmcEditorPage.Data> {
     @Override
     public void build(Ref<EntityStore> ref, UICommandBuilder commands, UIEventBuilder events, Store<EntityStore> store) {
         commands.append(UI);
-        commands.set("#PageHeading.Text", "Advanced Equivalent Exchange");
+        commands.set("#PageHeading.Text", "Advanced Equivalency");
         commands.set("#Search.Value", search);
         commands.set("#EditorHeading.Text", text("heading"));
         commands.set("#ChooseItem.Text", text("choose"));

@@ -66,7 +66,7 @@ final class EmcPermissions {
         Path staged = Files.createTempFile(file.getParent(), "commands-", ".tmp");
         try {
             try (var writer = Files.newBufferedWriter(staged)) {
-                saved.store(writer, "Advanced Equivalent Exchange - permission command access");
+                saved.store(writer, "Advanced Equivalency - permission command access");
             }
             try {
                 Files.move(staged, file, StandardCopyOption.ATOMIC_MOVE, StandardCopyOption.REPLACE_EXISTING);

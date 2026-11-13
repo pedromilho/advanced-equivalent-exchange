@@ -25,6 +25,10 @@ import com.hypixel.hytale.server.core.universe.world.chunk.section.BlockSection;
 import com.hypixel.hytale.server.core.universe.world.storage.ChunkStore;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Map;
 import java.util.OptionalLong;
 
@@ -41,6 +45,7 @@ public final class EquivalentExchangePlugin extends JavaPlugin {
 
     @Override
     protected void setup() {
+        importLegacySettings();
         PermissionsModule.registerPermission(EmcPermissions.MODIFY);
         PermissionsModule.registerPermission(EmcPermissions.READONLY);
         PermissionsModule.registerPermission(EmcPermissions.MANAGE);
@@ -72,6 +77,31 @@ public final class EquivalentExchangePlugin extends JavaPlugin {
                 if (player != null) inventory.handle(move);
             });
         });
+    }
+
+    private void importLegacySettings() {
+        var directory = getDataDirectory();
+        var legacyDirectory = directory.resolveSibling("Pedro_AdvancedEquivalentExchange");
+        if (Files.notExists(legacyDirectory)) return;
+        try {
+            Files.createDirectories(directory);
+            for (String filename : List.of("emc.properties", "emc-overrides.properties", "commands.properties")) {
+                var source = legacyDirectory.resolve(filename);
+                var target = directory.resolve(filename);
+                if (Files.notExists(source) || Files.exists(target)) continue;
+                var staged = Files.createTempFile(directory, "legacy-settings-", ".tmp");
+                try {
+                    Files.copy(source, staged, StandardCopyOption.REPLACE_EXISTING);
+                    Files.move(staged, target);
+                } catch (FileAlreadyExistsException ignored) {
+                    // Keep any settings already created for the renamed mod.
+                } finally {
+                    Files.deleteIfExists(staged);
+                }
+            }
+        } catch (IOException error) {
+            throw new IllegalStateException("Cannot import alchemy settings from " + legacyDirectory, error);
+        }
     }
 
     @Override

@@ -16,10 +16,10 @@ final class EmcEditorCommand extends AbstractPlayerCommand {
     private final EmcPermissions permissions;
 
     EmcEditorCommand(EquivalentExchangePlugin plugin, EmcPermissions permissions) {
-        super("advancedequivalentexchange", "server.aee.commands.editor");
+        super("advancedequivalency", "server.aee.commands.editor");
         this.plugin = plugin;
         this.permissions = permissions;
-        addAliases("aee");
+        addAliases("aee", "advancedequivalentexchange");
         requireNoPermission();
         addUsageVariant(new EmcPermissionCommand(permissions));
     }
