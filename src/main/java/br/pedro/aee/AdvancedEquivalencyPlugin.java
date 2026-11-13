@@ -17,6 +17,7 @@ import com.hypixel.hytale.server.core.modules.entity.component.TransformComponen
 import com.hypixel.hytale.server.core.modules.i18n.I18nModule;
 import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Interaction;
 import com.hypixel.hytale.server.core.permissions.PermissionsModule;
+import com.hypixel.hytale.server.core.permissions.provider.HytalePermissionsProvider;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
 import com.hypixel.hytale.server.core.universe.Universe;
@@ -32,14 +33,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.OptionalLong;
 
-public final class EquivalentExchangePlugin extends JavaPlugin {
+public final class AdvancedEquivalencyPlugin extends JavaPlugin {
     static final String TABLE = "AEE_Transmutation_Table";
     private ComponentType<EntityStore, AlchemyKnowledge> knowledgeType;
     private ComponentType<ChunkStore, EnergyCondenser> condenserType;
     private volatile EmcConfiguration configuration;
     private PacketFilter tooltipPackets;
 
-    public EquivalentExchangePlugin(JavaPluginInit init) {
+    public AdvancedEquivalencyPlugin(JavaPluginInit init) {
         super(init);
     }
 
@@ -106,6 +107,11 @@ public final class EquivalentExchangePlugin extends JavaPlugin {
 
     @Override
     protected void start() {
+        for (var provider : PermissionsModule.get().getProviders()) {
+            if (provider instanceof HytalePermissionsProvider builtin) {
+                EmcPermissions.migrateLegacyPermissions(builtin);
+            }
+        }
         try {
             configuration = new EmcConfiguration(getDataDirectory());
             var tooltips = new EmcTooltips(this::emcValues);

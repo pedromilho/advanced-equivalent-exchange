@@ -3,7 +3,7 @@
     "Name": "server.items.AEE_Transmutation_Table.name",
     "Description": "server.items.AEE_Transmutation_Table.description"
   },
-  "Icon": "Icons/Items/AdvancedEquivalentExchange/TransmutationTableIcon.png",
+  "Icon": "Icons/Items/AdvancedEquivalency/TransmutationTableIcon.png",
   "PlayerAnimationsId": "Block",
   "Categories": ["Furniture.Benches"],
   "MaxStack": 25,
@@ -26,9 +26,9 @@
     "DrawType": "Model",
     "Opacity": "Transparent",
     "VariantRotation": "NESW",
-    "CustomModel": "Blocks/AdvancedEquivalentExchange/TransmutationTable.blockymodel",
+    "CustomModel": "Blocks/AdvancedEquivalency/TransmutationTable.blockymodel",
     "CustomModelTexture": [
-      { "Texture": "Blocks/AdvancedEquivalentExchange/TransmutationTable.png", "Weight": 1 }
+      { "Texture": "Blocks/AdvancedEquivalency/TransmutationTable.png", "Weight": 1 }
     ],
     "HitboxType": "AEE_Transmutation_Table",
     "BlockParticleSetId": "Stone",

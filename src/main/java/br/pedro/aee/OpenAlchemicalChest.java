@@ -22,13 +22,13 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 public final class OpenAlchemicalChest extends SimpleInstantInteraction {
     static final String CHEST = "AEE_Alchemical_Chest";
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
 
-    private OpenAlchemicalChest(EquivalentExchangePlugin plugin) {
+    private OpenAlchemicalChest(AdvancedEquivalencyPlugin plugin) {
         this.plugin = plugin;
     }
 
-    static BuilderCodec<OpenAlchemicalChest> codec(EquivalentExchangePlugin plugin) {
+    static BuilderCodec<OpenAlchemicalChest> codec(AdvancedEquivalencyPlugin plugin) {
         return BuilderCodec.builder(OpenAlchemicalChest.class, () -> new OpenAlchemicalChest(plugin),
             SimpleInstantInteraction.CODEC).build();
     }

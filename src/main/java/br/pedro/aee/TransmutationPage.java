@@ -44,7 +44,7 @@ import org.bson.BsonDocument;
 final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
     private static final BuilderCodec<InventoryInput> CODEC = BuilderCodec.builder(
         InventoryInput.class, () -> InventoryInput.parse("{}")).build();
-    private static final String UI = "AdvancedEquivalentExchange/";
+    private static final String UI = "AdvancedEquivalency/";
     private static final int TRADE_ROWS = 4;
     private static final int VISIBLE_COLUMNS = 14;
     private static final int TRADE_PITCH = 45;
@@ -62,7 +62,7 @@ final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
         InventoryGestures.BACKPACK, new Grid("#BackpackHost", "ChestPlayerGrid.ui", 9, 520, 443, 4, 40)
     );
 
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
     private final World world;
     private final BlockPosition target;
     private final String session = UUID.randomUUID().toString();
@@ -96,7 +96,7 @@ final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
     private String notice = "";
     private boolean active;
 
-    TransmutationPage(PlayerRef player, EquivalentExchangePlugin plugin, World world, BlockPosition target) {
+    TransmutationPage(PlayerRef player, AdvancedEquivalencyPlugin plugin, World world, BlockPosition target) {
         super(player, CustomPageLifetime.CanDismissOrCloseThroughInteraction, CODEC);
         this.plugin = plugin;
         this.world = world;
@@ -417,7 +417,7 @@ final class TransmutationPage extends InteractiveCustomUIPage<InventoryInput> {
     }
 
     private boolean valid(Ref<EntityStore> ref, Store<EntityStore> store) {
-        if (!EquivalentExchangePlugin.canAccess(ref, store, world, target)) return false;
+        if (!AdvancedEquivalencyPlugin.canAccess(ref, store, world, target)) return false;
         var player = store.getComponent(ref, Player.getComponentType());
         if (player == null) return false;
         var manager = player.getWindowManager();

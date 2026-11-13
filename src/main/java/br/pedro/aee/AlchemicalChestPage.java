@@ -37,7 +37,7 @@ import org.bson.BsonDocument;
 final class AlchemicalChestPage extends InteractiveCustomUIPage<InventoryInput> {
     private static final BuilderCodec<InventoryInput> CODEC = BuilderCodec.builder(
         InventoryInput.class, () -> InventoryInput.parse("{}")).build();
-    private static final String UI = "AdvancedEquivalentExchange/";
+    private static final String UI = "AdvancedEquivalency/";
     private static final int FRAME_WIDTH = 1040;
     private static final int FRAME_HEIGHT = 550;
     private static final int SLOT_SIZE = 40;
@@ -52,7 +52,7 @@ final class AlchemicalChestPage extends InteractiveCustomUIPage<InventoryInput> 
     private final World world;
     private final Ref<ChunkStore> blockRef;
     private final ContainerBlockWindow window;
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
     private final String session = UUID.randomUUID().toString();
     private final String language;
     private final boolean portuguese;
@@ -71,7 +71,7 @@ final class AlchemicalChestPage extends InteractiveCustomUIPage<InventoryInput> 
     private boolean active;
 
     AlchemicalChestPage(PlayerRef player, World world, Ref<ChunkStore> blockRef, ContainerBlockWindow window,
-                        EquivalentExchangePlugin plugin) {
+                        AdvancedEquivalencyPlugin plugin) {
         super(player, CustomPageLifetime.CanDismissOrCloseThroughInteraction, CODEC);
         this.world = world;
         this.blockRef = blockRef;

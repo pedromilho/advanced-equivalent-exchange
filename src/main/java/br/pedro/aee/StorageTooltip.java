@@ -143,15 +143,15 @@ final class StorageTooltip {
         }
         boolean contentChanged=!current.equals(mounted);
         if(moved || contentChanged) {
-            commands.set(HOST+"#StorageTooltipArrow.Background",Value.ref("AdvancedEquivalentExchange/StorageTooltip.ui",(pointUp?"ArrowUp":"Arrow")+current.skin));
+            commands.set(HOST+"#StorageTooltipArrow.Background",Value.ref("AdvancedEquivalency/StorageTooltip.ui",(pointUp?"ArrowUp":"Arrow")+current.skin));
         }
         if(contentChanged) {
             commands.set(HOST+"#StorageTooltipName.Text",current.name);commands.set(HOST+"#StorageTooltipId.Text",current.id);
             commands.set(HOST+"#StorageTooltipQuality.Text",current.quality);commands.set(HOST+"#StorageTooltipQuality.Visible",current.showQuality);
             commands.set(HOST+"#StorageTooltipDescription.Text",String.join("\n",descriptionLines));commands.set(HOST+"#StorageTooltipDescriptionGroup.Visible",!descriptionLines.isEmpty());
             commands.set(HOST+"#StorageTooltipStats.Text",String.join("\n",statLines));commands.set(HOST+"#StorageTooltipStatsGroup.Visible",!statLines.isEmpty());
-            commands.set(HOST+"#StorageTooltip.Background",Value.ref("AdvancedEquivalentExchange/StorageTooltip.ui","Body"+current.skin));
-            commands.set(HOST+"#StorageTooltipName.Style",Value.ref("AdvancedEquivalentExchange/StorageTooltip.ui","Name"+current.skin));
+            commands.set(HOST+"#StorageTooltip.Background",Value.ref("AdvancedEquivalency/StorageTooltip.ui","Body"+current.skin));
+            commands.set(HOST+"#StorageTooltipName.Style",Value.ref("AdvancedEquivalency/StorageTooltip.ui","Name"+current.skin));
             mounted=current;
         }
         if(!visible) commands.set(HOST+"#StorageTooltip.Visible",true);

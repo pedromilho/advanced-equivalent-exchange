@@ -3,7 +3,7 @@
     "Name": "server.items.AEE_Alchemical_Chest.name",
     "Description": "server.items.AEE_Alchemical_Chest.description"
   },
-  "Icon": "Icons/Items/AdvancedEquivalentExchange/AlchemicalChestIcon.png",
+  "Icon": "Icons/Items/AdvancedEquivalency/AlchemicalChestIcon.png",
   "PlayerAnimationsId": "Block",
   "Categories": ["Furniture.Containers"],
   "MaxStack": 25,
@@ -25,9 +25,9 @@
     "DrawType": "Model",
     "Opacity": "Transparent",
     "VariantRotation": "NESW",
-    "CustomModel": "Blocks/AdvancedEquivalentExchange/AlchemicalChest.blockymodel",
+    "CustomModel": "Blocks/AdvancedEquivalency/AlchemicalChest.blockymodel",
     "CustomModelTexture": [
-      { "Texture": "Blocks/AdvancedEquivalentExchange/AlchemicalChest.png", "Weight": 1 }
+      { "Texture": "Blocks/AdvancedEquivalency/AlchemicalChest.png", "Weight": 1 }
     ],
     "HitboxType": "AEE_Alchemical_Chest",
     "BlockParticleSetId": "Wood",

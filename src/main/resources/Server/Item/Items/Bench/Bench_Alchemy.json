@@ -81,7 +81,7 @@
         },
         {
           "Id": "AEE_Alchemy",
-          "Icon": "Icons/CraftingCategories/AdvancedEquivalentExchange/Alchemy.png",
+          "Icon": "Icons/CraftingCategories/AdvancedEquivalency/Alchemy.png",
           "Name": "server.benchCategories.aee"
         }
       ],

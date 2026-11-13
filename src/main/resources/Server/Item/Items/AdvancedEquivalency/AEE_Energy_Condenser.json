@@ -3,7 +3,7 @@
     "Name": "server.items.AEE_Energy_Condenser.name",
     "Description": "server.items.AEE_Energy_Condenser.description"
   },
-  "Icon": "Icons/Items/AdvancedEquivalentExchange/EnergyCondenserIcon.png",
+  "Icon": "Icons/Items/AdvancedEquivalency/EnergyCondenserIcon.png",
   "PlayerAnimationsId": "Block",
   "Categories": ["Furniture.Benches"],
   "MaxStack": 25,
@@ -26,9 +26,9 @@
     "DrawType": "Model",
     "Opacity": "Transparent",
     "VariantRotation": "NESW",
-    "CustomModel": "Blocks/AdvancedEquivalentExchange/EnergyCondenser.blockymodel",
+    "CustomModel": "Blocks/AdvancedEquivalency/EnergyCondenser.blockymodel",
     "CustomModelTexture": [
-      { "Texture": "Blocks/AdvancedEquivalentExchange/EnergyCondenser.png", "Weight": 1 }
+      { "Texture": "Blocks/AdvancedEquivalency/EnergyCondenser.png", "Weight": 1 }
     ],
     "HitboxType": "AEE_Energy_Condenser",
     "BlockParticleSetId": "Stone",

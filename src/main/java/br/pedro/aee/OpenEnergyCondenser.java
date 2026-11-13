@@ -12,13 +12,13 @@ import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Sim
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 
 public final class OpenEnergyCondenser extends SimpleInstantInteraction {
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
 
-    private OpenEnergyCondenser(EquivalentExchangePlugin plugin) {
+    private OpenEnergyCondenser(AdvancedEquivalencyPlugin plugin) {
         this.plugin = plugin;
     }
 
-    static BuilderCodec<OpenEnergyCondenser> codec(EquivalentExchangePlugin plugin) {
+    static BuilderCodec<OpenEnergyCondenser> codec(AdvancedEquivalencyPlugin plugin) {
         return BuilderCodec.builder(OpenEnergyCondenser.class, () -> new OpenEnergyCondenser(plugin),
             SimpleInstantInteraction.CODEC).build();
     }
@@ -41,7 +41,7 @@ public final class OpenEnergyCondenser extends SimpleInstantInteraction {
             var container = block.getStore().getComponent(block, ItemContainerBlock.getComponentType());
             if (machine == null || container == null) return;
             var id = machine.advanced() ? EnergyCondenser.TIER_TWO : EnergyCondenser.TIER_ONE;
-            if (!EquivalentExchangePlugin.canAccess(ref, store, world, target, id)) return;
+            if (!AdvancedEquivalencyPlugin.canAccess(ref, store, world, target, id)) return;
             var stock = container.getItemContainer();
             if (stock.getCapacity() != machine.moldSlot() + 1) return;
             machine.configure(stock, plugin);

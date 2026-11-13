@@ -34,9 +34,9 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 final class EmcEditorPage extends InteractiveCustomUIPage<EmcEditorPage.Data> {
-    private static final String UI = "AdvancedEquivalentExchange/EmcEditor.ui";
-    private static final String CARD = "AdvancedEquivalentExchange/EmcEditorCard.ui";
-    private static final String PLAYER_ROW = "AdvancedEquivalentExchange/EmcPlayerRow.ui";
+    private static final String UI = "AdvancedEquivalency/EmcEditor.ui";
+    private static final String CARD = "AdvancedEquivalency/EmcEditorCard.ui";
+    private static final String PLAYER_ROW = "AdvancedEquivalency/EmcPlayerRow.ui";
     private static final int COLUMNS = 5;
     private static final int PAGE_SIZE = COLUMNS * 5;
     private static final Pattern MARKS = Pattern.compile("\\p{M}+");
@@ -61,7 +61,7 @@ final class EmcEditorPage extends InteractiveCustomUIPage<EmcEditorPage.Data> {
         }
     }
 
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
     private final EmcPermissions permissions;
     private final String language;
     private final NumberFormat numbers;
@@ -78,7 +78,7 @@ final class EmcEditorPage extends InteractiveCustomUIPage<EmcEditorPage.Data> {
     private int page;
     private Entry selected;
 
-    EmcEditorPage(PlayerRef player, EquivalentExchangePlugin plugin, EmcPermissions permissions) {
+    EmcEditorPage(PlayerRef player, AdvancedEquivalencyPlugin plugin, EmcPermissions permissions) {
         super(player, CustomPageLifetime.CanDismiss, Data.CODEC);
         this.plugin = plugin;
         this.permissions = permissions;

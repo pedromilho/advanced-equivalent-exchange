@@ -51,7 +51,7 @@ final class EnergyCondenser implements Component<ChunkStore> {
         return copy;
     }
 
-    void configure(SimpleItemContainer stock, EquivalentExchangePlugin plugin) {
+    void configure(SimpleItemContainer stock, AdvancedEquivalencyPlugin plugin) {
         if (configured == stock) return;
         for (short i = 0; i < inputs(); i++) {
             stock.setSlotFilter(FilterActionType.ADD, i,
@@ -143,10 +143,10 @@ final class EnergyCondenser implements Component<ChunkStore> {
     }
 
     static final class Ticking extends EntityTickingSystem<ChunkStore> {
-        private final EquivalentExchangePlugin plugin;
+        private final AdvancedEquivalencyPlugin plugin;
         private final ComponentType<ChunkStore, EnergyCondenser> type;
 
-        Ticking(EquivalentExchangePlugin plugin, ComponentType<ChunkStore, EnergyCondenser> type) {
+        Ticking(AdvancedEquivalencyPlugin plugin, ComponentType<ChunkStore, EnergyCondenser> type) {
             this.plugin = plugin;
             this.type = type;
         }

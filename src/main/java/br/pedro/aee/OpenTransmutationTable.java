@@ -9,14 +9,14 @@ import com.hypixel.hytale.server.core.modules.interaction.interaction.config.Sim
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 
 public final class OpenTransmutationTable extends SimpleInstantInteraction {
-    static BuilderCodec<OpenTransmutationTable> codec(EquivalentExchangePlugin plugin) {
+    static BuilderCodec<OpenTransmutationTable> codec(AdvancedEquivalencyPlugin plugin) {
         return BuilderCodec.builder(OpenTransmutationTable.class, () -> new OpenTransmutationTable(plugin),
             SimpleInstantInteraction.CODEC).build();
     }
 
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
 
-    private OpenTransmutationTable(EquivalentExchangePlugin plugin) {
+    private OpenTransmutationTable(AdvancedEquivalencyPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -28,7 +28,7 @@ public final class OpenTransmutationTable extends SimpleInstantInteraction {
         var world = store.getExternalData().getWorld();
         var target = context.getTargetBlock();
         world.execute(() -> {
-            if (!EquivalentExchangePlugin.canAccess(ref, store, world, target)) return;
+            if (!AdvancedEquivalencyPlugin.canAccess(ref, store, world, target)) return;
             var player = store.getComponent(ref, Player.getComponentType());
             var playerRef = store.getComponent(ref, PlayerRef.getComponentType());
             if (player == null || playerRef == null) return;

@@ -41,7 +41,7 @@ import org.bson.BsonDocument;
 final class CondenserPage extends InteractiveCustomUIPage<InventoryInput> {
     private static final BuilderCodec<InventoryInput> CODEC = BuilderCodec.builder(
         InventoryInput.class, () -> InventoryInput.parse("{}")).build();
-    private static final String UI = "AdvancedEquivalentExchange/";
+    private static final String UI = "AdvancedEquivalency/";
     private static final int INPUT = InventoryGestures.CHEST;
     private static final int OUTPUT = InventoryGestures.CONDENSER_OUTPUT;
     private static final int MOLD = InventoryGestures.CONDENSER_MOLD;
@@ -50,7 +50,7 @@ final class CondenserPage extends InteractiveCustomUIPage<InventoryInput> {
     private static final int BACKPACK = InventoryGestures.BACKPACK;
     private static final Map<UUID, CondenserPage> OPEN = new ConcurrentHashMap<>();
 
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
     private final World world;
     private final BlockPosition target;
     private final Ref<ChunkStore> block;
@@ -74,7 +74,7 @@ final class CondenserPage extends InteractiveCustomUIPage<InventoryInput> {
     private String notice = "";
     private boolean active;
 
-    CondenserPage(PlayerRef player, EquivalentExchangePlugin plugin, World world, BlockPosition target,
+    CondenserPage(PlayerRef player, AdvancedEquivalencyPlugin plugin, World world, BlockPosition target,
                   Ref<ChunkStore> block, EnergyCondenser machine, SimpleItemContainer stock) {
         super(player, CustomPageLifetime.CanDismissOrCloseThroughInteraction, CODEC);
         this.plugin = plugin;
@@ -315,7 +315,7 @@ final class CondenserPage extends InteractiveCustomUIPage<InventoryInput> {
 
     private boolean valid(Ref<EntityStore> ref, Store<EntityStore> store) {
         if (!block.isValid() || !ref.isValid() || store.getArchetype(ref).contains(PreventInventoryAccess.getComponentType())
-            || !EquivalentExchangePlugin.canAccess(ref, store, world, target,
+            || !AdvancedEquivalencyPlugin.canAccess(ref, store, world, target,
                 machine.advanced() ? EnergyCondenser.TIER_TWO : EnergyCondenser.TIER_ONE)) return false;
         var player = store.getComponent(ref, Player.getComponentType());
         if (player == null) return false;

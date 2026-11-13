@@ -12,14 +12,14 @@ import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 
 final class EmcEditorCommand extends AbstractPlayerCommand {
-    private final EquivalentExchangePlugin plugin;
+    private final AdvancedEquivalencyPlugin plugin;
     private final EmcPermissions permissions;
 
-    EmcEditorCommand(EquivalentExchangePlugin plugin, EmcPermissions permissions) {
+    EmcEditorCommand(AdvancedEquivalencyPlugin plugin, EmcPermissions permissions) {
         super("advancedequivalency", "server.aee.commands.editor");
         this.plugin = plugin;
         this.permissions = permissions;
-        addAliases("aee", "advancedequivalentexchange");
+        addAliases("aee");
         requireNoPermission();
         addUsageVariant(new EmcPermissionCommand(permissions));
     }

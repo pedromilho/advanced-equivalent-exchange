@@ -4,20 +4,24 @@ import com.hypixel.hytale.server.core.Constants;
 import com.hypixel.hytale.server.core.command.system.CommandSender;
 import com.hypixel.hytale.server.core.modules.singleplayer.SingleplayerModule;
 import com.hypixel.hytale.server.core.permissions.PermissionsModule;
+import com.hypixel.hytale.server.core.permissions.provider.HytalePermissionsProvider;
 import java.io.IOException;
 import java.nio.file.AtomicMoveNotSupportedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.List;
 import java.util.Properties;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Consumer;
 
 final class EmcPermissions {
-    static final String MODIFY = "advancedequivalentexchange.config";
-    static final String READONLY = "advancedequivalentexchange.readonly";
-    static final String MANAGE = "advancedequivalentexchange.permissions";
+    private static final String PREFIX = "advancedequivalency.";
+    private static final String LEGACY_PREFIX = "advancedequivalentexchange.";
+    static final String MODIFY = PREFIX + "config";
+    static final String READONLY = PREFIX + "readonly";
+    static final String MANAGE = PREFIX + "permissions";
 
     enum Level { OFF, READONLY, MODIFY }
     enum CommandAccess { ADMIN_ONLY, ALL }
@@ -48,6 +52,30 @@ final class EmcPermissions {
 
     static boolean canManage(CommandSender sender) {
         return isOwner(sender.getUuid()) || sender.hasPermission(MANAGE);
+    }
+
+    static void migrateLegacyPermissions(HytalePermissionsProvider provider) {
+        for (String suffix : Set.of("config", "readonly", "permissions", "*")) {
+            for (String sign : List.of("-", "")) {
+                String oldKey = sign + LEGACY_PREFIX + suffix;
+                String newKey = sign + PREFIX + suffix;
+                String oppositeKey = sign.isEmpty() ? "-" + newKey : PREFIX + suffix;
+                Set<UUID> users = provider.getUsersWithPermission(oldKey);
+                for (UUID user : users) {
+                    if (!provider.getUserPermissions(user).contains(oppositeKey)) {
+                        provider.addUserPermissions(user, Set.of(newKey));
+                    }
+                }
+                if (!users.isEmpty()) provider.removeUserPermissionFromAll(oldKey);
+
+                for (String group : provider.getAllRegisteredGroups()) {
+                    Set<String> keys = provider.getGroupPermissions(group);
+                    if (!keys.contains(oldKey)) continue;
+                    if (!keys.contains(oppositeKey)) provider.addGroupPermissions(group, Set.of(newKey));
+                    provider.removeGroupPermissions(group, Set.of(oldKey));
+                }
+            }
+        }
     }
 
     CommandAccess commandAccess() {
